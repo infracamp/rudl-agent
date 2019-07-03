@@ -1,0 +1,10 @@
+version: 1
+from: "infracamp/kickstart-flavor-base:testing"
+
+command:
+  build:
+    - "sudo scripts/install.sh"
+  run:
+  dev:
+  interval:
+    - "sudo php -f /opt/bin/update-nginx.php || sleep 60"
