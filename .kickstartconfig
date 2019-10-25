@@ -1,3 +1,4 @@
-KICKSTART_DOCKER_RUN_OPTS=" -v /var/run/docker.sock:/var/run/docker.sock -v /:/host -v /proc:/hostfs/proc:ro -v /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro --privileged"
+
+KICKSTART_DOCKER_RUN_OPTS=" -v /var/run/docker.sock:/var/run/docker.sock -v /:/hostfs --privileged"
 
 KICKSTART_PORTS=""
