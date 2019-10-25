@@ -6,6 +6,10 @@ command:
     - "sudo scripts/install.sh"
   run:
   dev:
+
+
+  update:
+    - "sudo vendor/bin/cloudtool --tpldir /opt/etc --target /etc"
+
   interval:
-    - "sudo php -f /opt/bin/update-nginx.php || sleep 60"
 
