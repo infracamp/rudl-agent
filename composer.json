@@ -1,6 +1,7 @@
 {
   "minimum-stability": "dev",
   "require": {
-    "phore/cloudtool": "dev-master"
+    "phore/cloudtool": "dev-master",
+    "phore/http-client": "dev-master"
   }
 }
