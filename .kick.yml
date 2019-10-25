@@ -8,3 +8,4 @@ command:
   dev:
   interval:
     - "sudo php -f /opt/bin/update-nginx.php || sleep 60"
+

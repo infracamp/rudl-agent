@@ -5,7 +5,7 @@ hostfs="/hostfs"
 output="{\"hostname\":\"$(cat $hostfs/etc/hostname)\"";
 
 
-output="$output, \"loadavg\"=$(cat $hostfs/proc/loadavg | awk '{print $1}')"
+output="$output, \"loadavg\":$(cat $hostfs/proc/loadavg | awk '{print $1}')"
 
 output="$output, \"mem_avail_kb\":$(cat $hostfs/proc/meminfo | grep MemAvailable | awk '{print $2}')"
 output="$output, \"mem_total_kb\":$(cat $hostfs/proc/meminfo | grep MemTotal | awk '{print $2}')"
