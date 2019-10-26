@@ -2,7 +2,7 @@
 
 hostfs="/hostfs"
 
-output="{\"hostname\":\"$(cat $hostfs/etc/hostname)\"";
+output="{\"host\":\"$(cat $hostfs/etc/hostname)\"";
 
 
 output="$output, \"loadavg\":$(cat $hostfs/proc/loadavg | awk '{print $1}')"
