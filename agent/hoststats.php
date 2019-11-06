@@ -15,7 +15,7 @@ $clusterName = CONF_CLUSTER_NAME;
 $pushUrl = CONF_METRICS_HOST . "/v1/push/node";
 
 phore_log()->setDriver(new PhoreEchoLoggerDriver());
-phore_log()->setLogLevel(LogLevel::NOTICE);
+phore_log()->setLogLevel(LogLevel::WARNING);
 
 
 while (1) {
