@@ -1,16 +1,18 @@
 version: 1
 from: "infracamp/kickstart-flavor-gaia:testing"
 
+config_file:
+  template: "config.php.dist"
+  target: "config.php"
+
 command:
   build:
     - "sudo scripts/install.sh"
     - "composer update"
   run:
+    - "sudo php -f agent/hoststats.php"
+
   dev:
-
-
-  update:
-    - "sudo vendor/bin/cloudtool --tpldir /opt/etc --target /etc"
 
   interval:
 

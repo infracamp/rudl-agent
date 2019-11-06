@@ -1,6 +1,7 @@
 {
   "minimum-stability": "dev",
   "require": {
+    "php": ">=7.2",
     "phore/cloudtool": "dev-master",
     "phore/http-client": "dev-master"
   }

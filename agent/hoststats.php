@@ -3,9 +3,19 @@
 
 namespace App;
 
-require __DIR__ . "/../vendor/autoload.php";
+use Phore\Log\Logger\PhoreEchoLoggerDriver;
+use Psr\Log\LogLevel;
 
-$clusterName = "arnold";
+require __DIR__ . "/../vendor/autoload.php";
+require __DIR__ . "/../config.php";
+
+
+$clusterName = CONF_CLUSTER_NAME;
+
+$pushUrl = CONF_METRICS_HOST . "/v1/push/node";
+
+phore_log()->setDriver(new PhoreEchoLoggerDriver());
+phore_log()->setLogLevel(LogLevel::NOTICE);
 
 
 while (1) {
@@ -21,7 +31,14 @@ while (1) {
     ];
 
 
-    phore_http_request("http://10.0.10.230/v1/push/node")->withPostBody($message)->send();
+    try {
+        phore_log()->notice("Push to $pushUrl...");
+        phore_http_request($pushUrl)->withPostBody($message)->send();
+        phore_log()->debug("Ok");
+    } catch (\Exception $e) {
+        phore_log()->warning("Push to $pushUrl failed: " . $e->getMessage());
+        sleep (60);
+    }
 
     sleep (5);
 

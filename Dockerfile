@@ -1,7 +1,9 @@
 FROM infracamp/kickstart-flavor-gaia:testing
 
 ENV DEV_CONTAINER_NAME="rudl-agent"
-ENV CONF_PRINCIPAL_HOSTNAME="rudl-principal"
+
+ENV CONF_METRICS_HOST="http://rudl-metrics"
+ENV CONF_CLUSTER_NAME="unnamed"
 
 ADD / /opt
 RUN ["bash", "-c",  "chown -R user /opt"]
