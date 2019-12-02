@@ -4,6 +4,7 @@
 namespace App;
 
 use Phore\Log\Logger\PhoreEchoLoggerDriver;
+use Phore\Log\PhoreLogger;
 use Psr\Log\LogLevel;
 
 require __DIR__ . "/../vendor/autoload.php";
@@ -14,7 +15,8 @@ $clusterName = CONF_CLUSTER_NAME;
 
 $pushUrl = CONF_METRICS_HOST . "/v1/push/node";
 
-phore_log()->setDriver(new PhoreEchoLoggerDriver());
+
+PhoreLogger::Init(new PhoreEchoLoggerDriver());
 phore_log()->setLogLevel(LogLevel::WARNING);
 
 
